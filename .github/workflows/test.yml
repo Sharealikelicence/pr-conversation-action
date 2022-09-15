@@ -4,9 +4,6 @@ on:
   pull_request:
     types: [opened]
 
-env:
-  COMMENT: "Review documentation."
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -14,4 +11,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
+          COMMENT: "Hello World!"
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

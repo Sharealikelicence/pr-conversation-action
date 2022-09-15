@@ -3,10 +3,9 @@ const github = require('@actions/github');
 
 async function run() {
   const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
-  const comment = process.env.COMMENT ?? 'Default Comment.';
+  const comment = core.getInput('COMMENT', { trimWhitespace: false });
 
   const octokit = github.getOctokit(GITHUB_TOKEN);
-
 
   const { context = {} } = github;
 
